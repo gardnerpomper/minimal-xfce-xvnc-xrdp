@@ -1,0 +1,4 @@
+#
+# ----- start the xfce desktop
+#
+/etc/xdg/xfce4/xinitrc &

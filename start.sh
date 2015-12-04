@@ -3,11 +3,7 @@
 # ------ start the VNC server
 # ------ this will prompt for a password
 #
-vncserver $DISPLAY -depth $DEPTH -geometry $GEOMETRY
-#
-# ----- start the xfce desktop
-#
-/etc/xdg/xfce4/xinitrc &
+vncserver $DISPLAY -depth $DEPTH -geometry $GEOMETRY -localhost
 #
 # ----- start xrdp
 #

@@ -7,7 +7,7 @@ MAINTAINER Gardner Pomper "gardner@networknow.org"
 # ----- xvnc / xrdp / xfce installation
 #
 RUN yum -y install epel-release		&&\
-        yum -y update				&&\
+        yum -y update			&&\
         yum clean all
 RUN yum --enablerepo=epel -y -x gnome-keyring --skip-broken groups install "Xfce" "Fonts" &&\
         yum clean all
@@ -20,7 +20,7 @@ RUN yum -y install sudo tigervnc-server xrdp wget net-tools unzip	&&\
 # ----- will be moved to /home/me after the UID is changed
 # ----- in runas_me.sh
 #
-RUN mkdir /dhome							&& \
+RUN mkdir /dhome					&& \
     useradd me  -G wheel -d /dhome/me			&& \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
@@ -28,8 +28,9 @@ RUN mkdir /dhome							&& \
 EXPOSE 5901 3389
 
 COPY xstartup /dhome/me/.vnc/
+COPY .bash_profile .bashrc .Xclients /dhome/me/
 COPY start.sh runas_me.sh /tmp/
-RUN chmod +x  /dhome/me/.vnc/xstartup /tmp/*.sh /etc/xdg/xfce4/xinitrc
+RUN chmod +x  /dhome/me/.Xclients /dhome/me/.vnc/xstartup /tmp/*.sh /etc/xdg/xfce4/xinitrc
 #
 # ----- define default values for the VNC display
 #
