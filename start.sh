@@ -3,7 +3,7 @@
 # ------ start the VNC server
 # ------ this will prompt for a password
 #
-vncserver $DISPLAY -depth $DEPTH -geometry $GEOMETRY -localhost
+vncserver $DISPLAY -depth $DEPTH -geometry $GEOMETRY -SecurityTypes None
 #
 # ----- start xrdp
 #
