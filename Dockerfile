@@ -30,7 +30,9 @@ EXPOSE 5901 3389
 COPY xstartup /dhome/me/.vnc/
 COPY .bash_profile .bashrc .Xclients /dhome/me/
 COPY start.sh runas_me.sh /tmp/
-RUN chmod +x  /dhome/me/.Xclients /dhome/me/.vnc/xstartup /tmp/*.sh /etc/xdg/xfce4/xinitrc
+RUN chmod +x  /dhome/me/.Xclients /dhome/.bash_profile /dhome/.bashrc	\
+    	      /dhome/me/.vnc/xstartup /tmp/*.sh 			\
+	      /etc/xdg/xfce4/xinitrc
 #
 # ----- define default values for the VNC display
 #
